@@ -125,7 +125,7 @@
     <i class="fas fa-spa flower-icon text-2xl md:text-3xl" style="top: 35%; right: 4%; animation-delay: 2s;"></i>
     <i class="fas fa-leaf flower-icon text-xl md:text-2xl" style="bottom: 15%; left: 5%; animation-delay: 4s;"></i>
 
-    <!-- CABECERA AJUSTADA -->
+    <!-- CABECERA -->
     <header class="header-gradient text-white p-4 md:p-6 shadow-lg relative z-10">
         <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 items-center gap-y-4">
             
@@ -139,9 +139,9 @@
                 </button>
             </div>
 
-            <!-- CENTRO: Título (En móvil ocupa toda la fila de abajo) -->
+            <!-- CENTRO: Título (Dinámico) -->
             <div class="text-center order-last md:order-none col-span-2 md:col-span-1 mt-2 md:mt-0">
-                <h1 class="text-2xl md:text-4xl font-serif font-bold uppercase tracking-widest">Plan Perfecto</h1>
+                <h1 id="app-title" class="text-2xl md:text-4xl font-serif font-bold uppercase tracking-widest">Plan Perfecto</h1>
                 <p id="txt-motto" class="italic text-[10px] md:text-sm mt-1 opacity-90">"Cada día es una nueva oportunidad para crear recuerdos inolvidables"</p>
             </div>
 
@@ -240,7 +240,7 @@
     </main>
 
     <footer class="text-center p-8 text-amber-800 opacity-50 text-xs md:text-sm">
-        <p>Plan Perfecto &copy; 2024 - Hecho con amor y flores</p>
+        <p id="footer-text">Plan Perfecto &copy; 2024 - Hecho con amor y flores</p>
     </footer>
 
     <div id="historyModal">
@@ -272,7 +272,9 @@
 
         const translations = {
             es: {
+                title: "Plan Perfecto",
                 motto: '"Cada día es una nueva oportunidad para crear recuerdos inolvidables"',
+                footer: "Plan Perfecto © 2024 - Hecho con amor y flores",
                 historyBtn: "Historial",
                 date: "Fecha",
                 temp: "Temperatura (°C)",
@@ -290,7 +292,9 @@
                 plans: ["Ir a tomar un helado artesano", "Paseo por la montaña", "Tarde de cine y palomitas", "Visitar un museo local", "Cena romántica", "Ver el atardecer en la playa", "Picnic en el parque", "Sesión de juegos de mesa", "Leer un libro en una cafetería", "Ruta en bicicleta", "Ir a patinar", "Cocinar algo nuevo"]
             },
             ca: {
+                title: "Pla Perfecte",
                 motto: '"Cada dia és una nova oportunitat per crear records inoblidables"',
+                footer: "Pla Perfecte © 2024 - Fet amb amor i flors",
                 historyBtn: "Historial",
                 date: "Data",
                 temp: "Temperatura (°C)",
@@ -308,7 +312,9 @@
                 plans: ["Prendre un gelat artesà", "Passejada per la muntanya", "Tarda de cinema i crispetes", "Visitar un museu local", "Sopar romàntic", "Veure la posta de sol a la platja", "Pícnic al parc", "Sessió de jocs de taula", "Llegir un llibre en una cafeteria", "Ruta en bicicleta", "Anar a patinar", "Cuinar una cosa nova"]
             },
             en: {
+                title: "Perfect Plan",
                 motto: '"Every day is a new opportunity to create unforgettable memories"',
+                footer: "Perfect Plan © 2024 - Made with love and flowers",
                 historyBtn: "History",
                 date: "Date",
                 temp: "Temperature (°C)",
@@ -331,7 +337,13 @@
             const lang = document.getElementById('lang-selector').value;
             const t = translations[lang];
 
+            // Título y Motto
+            document.getElementById('app-title').innerText = t.title;
+            document.title = t.title; // También cambia el título de la pestaña del navegador
             document.getElementById('txt-motto').innerText = t.motto;
+            document.getElementById('footer-text').innerText = t.footer;
+
+            // Elementos interfaz
             document.getElementById('txt-history-btn').innerText = t.historyBtn;
             document.getElementById('lbl-date').innerText = t.date;
             document.getElementById('lbl-temp').innerText = t.temp;
@@ -416,62 +428,4 @@
                 return;
             }
 
-            history.forEach(item => {
-                const card = document.createElement('div');
-                card.className = "bg-orange-50 p-4 rounded-xl border border-orange-100 relative shadow-sm";
-                
-                let stars = '';
-                for(let i=1; i<=5; i++) {
-                    stars += `<i class="${i <= item.rating ? 'fas' : 'far'} fa-star star-rating cursor-pointer text-sm md:text-base" onclick="ratePlan(${item.id}, ${i})"></i>`;
-                }
-
-                card.innerHTML = `
-                    <button onclick="deletePlan(${item.id})" class="absolute top-2 right-2 text-gray-400 hover:text-red-500 transition p-1">
-                        <i class="fas fa-times-circle"></i>
-                    </button>
-                    <h4 class="font-bold text-amber-900 text-base md:text-lg pr-6">${item.plan}</h4>
-                    <div class="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-[10px] md:text-xs text-amber-800 opacity-80">
-                        <span><i class="far fa-calendar-alt mr-1"></i> ${item.date}</span>
-                        <span><i class="fas fa-thermometer-half mr-1"></i> ${item.temp}°C</span>
-                        <span><i class="fas fa-users mr-1"></i> ${item.withWho}</span>
-                    </div>
-                    <div class="mt-3 flex items-center justify-between">
-                        <div class="space-x-1">${stars}</div>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        function ratePlan(id, rating) {
-            history = history.map(item => item.id === id ? {...item, rating: rating} : item);
-            saveHistory();
-            renderHistory();
-        }
-
-        function deletePlan(id) {
-            history = history.filter(item => item.id !== id);
-            saveHistory();
-            renderHistory();
-        }
-
-        function clearHistory() {
-            const confirmMsg = document.getElementById('lang-selector').value === 'en' ? "Clear all?" : "¿Borrar todo?";
-            if(confirm(confirmMsg)) {
-                history = [];
-                saveHistory();
-                renderHistory();
-            }
-        }
-
-        function saveHistory() {
-            localStorage.setItem('planHistory', JSON.stringify(history));
-        }
-
-        window.onload = () => {
-            changeLanguage();
-            document.getElementById('input-date').valueAsDate = new Date();
-        };
-    </script>
-</body>
-</html>
+           
