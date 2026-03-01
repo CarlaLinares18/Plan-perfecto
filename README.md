@@ -1,10 +1,10 @@
-# Plan-perfecto
+# Pla-perfecte
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan Perfecto</title>
+    <title>Pla Perfecte</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -139,9 +139,9 @@
                 </button>
             </div>
 
-            <!-- CENTRO: Título (Dinámico) -->
+            <!-- CENTRO: Título -->
             <div class="text-center order-last md:order-none col-span-2 md:col-span-1 mt-2 md:mt-0">
-                <h1 id="app-title" class="text-2xl md:text-4xl font-serif font-bold uppercase tracking-widest">Plan Perfecto</h1>
+                <h1 id="app-title" class="text-2xl md:text-4xl font-serif font-bold uppercase tracking-widest">Pla Perfecte</h1>
                 <p id="txt-motto" class="italic text-[10px] md:text-sm mt-1 opacity-90">"Cada día es una nueva oportunidad para crear recuerdos inolvidables"</p>
             </div>
 
@@ -149,8 +149,8 @@
             <div class="flex justify-end items-center space-x-2">
                 <i class="fas fa-globe text-sm md:text-base"></i>
                 <select id="lang-selector" onchange="changeLanguage()" class="bg-transparent border border-white/40 rounded px-1 md:px-2 py-1 text-xs md:text-sm outline-none">
-                    <option value="es" class="text-black">ES</option>
                     <option value="ca" class="text-black">CA</option>
+                    <option value="es" class="text-black">ES</option>
                     <option value="en" class="text-black">EN</option>
                 </select>
             </div>
@@ -163,7 +163,7 @@
                 <div class="flex flex-col space-y-2">
                     <label class="font-bold flex items-center space-x-2 text-sm md:text-base">
                         <i class="far fa-calendar-alt text-amber-700"></i>
-                        <span id="lbl-date">Fecha</span>
+                        <span id="lbl-date">Data</span>
                     </label>
                     <input type="date" id="input-date" class="border border-secondary rounded-lg p-2.5 md:p-3 outline-none focus:ring-2 focus:ring-primary w-full text-sm">
                 </div>
@@ -179,7 +179,7 @@
                 <div class="flex flex-col space-y-2">
                     <label class="font-bold flex items-center space-x-2 text-sm md:text-base">
                         <i class="fas fa-users text-amber-700"></i>
-                        <span id="lbl-with">¿Con quién vas?</span>
+                        <span id="lbl-with">Amb qui vas?</span>
                     </label>
                     <select id="input-with" class="border border-secondary rounded-lg p-2.5 md:p-3 outline-none focus:ring-2 focus:ring-primary bg-white w-full text-sm">
                     </select>
@@ -188,21 +188,21 @@
 
             <div class="text-center pt-2">
                 <button onclick="generatePlan()" class="btn-primary w-full md:w-auto px-8 md:px-12 py-3.5 md:py-4 rounded-full text-lg md:text-xl font-bold uppercase tracking-wider shadow-md active:scale-95 transition">
-                    <i class="fas fa-magic mr-2"></i> <span id="btn-generate">Encontrar Plan</span>
+                    <i class="fas fa-magic mr-2"></i> <span id="btn-generate">Trobar Pla</span>
                 </button>
             </div>
         </div>
 
         <div id="plan-result" class="hidden mt-8 md:mt-12 card p-6 md:p-8 border-2 border-primary text-center">
-            <h3 class="text-xl md:text-2xl font-bold mb-4 text-amber-900" id="txt-suggested-title">Tu plan ideal es...</h3>
+            <h3 class="text-xl md:text-2xl font-bold mb-4 text-amber-900" id="txt-suggested-title">El teu pla ideal és...</h3>
             <div id="suggested-activity" class="text-2xl md:text-3xl font-serif text-amber-800 mb-8 italic px-2"></div>
             
             <div class="flex flex-col sm:flex-row justify-center gap-3 md:gap-4">
                 <button onclick="acceptPlan()" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-bold transition shadow-sm w-full sm:w-auto">
-                    <i class="fas fa-check mr-2"></i> <span id="btn-do-it">¡Lo hago!</span>
+                    <i class="fas fa-check mr-2"></i> <span id="btn-do-it">Ho faig!</span>
                 </button>
                 <button onclick="generatePlan()" class="bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-lg font-bold transition shadow-sm w-full sm:w-auto">
-                    <i class="fas fa-redo mr-2"></i> <span id="btn-other">Otro plan</span>
+                    <i class="fas fa-redo mr-2"></i> <span id="btn-other">Un altre pla</span>
                 </button>
             </div>
         </div>
@@ -211,7 +211,7 @@
             <div class="flex items-center justify-center space-x-4 mb-6 px-4">
                 <div class="h-px bg-secondary flex-1"></div>
                 <h2 class="text-xl md:text-2xl font-serif italic text-amber-800 flex items-center shrink-0">
-                    <i class="fas fa-spa mr-2 text-primary"></i> <span id="txt-inspire">Inspírate</span> <i class="fas fa-spa ml-2 text-primary"></i>
+                    <i class="fas fa-spa mr-2 text-primary"></i> <span id="txt-inspire">Inspira't</span> <i class="fas fa-spa ml-2 text-primary"></i>
                 </h2>
                 <div class="h-px bg-secondary flex-1"></div>
             </div>
@@ -240,14 +240,14 @@
     </main>
 
     <footer class="text-center p-8 text-amber-800 opacity-50 text-xs md:text-sm">
-        <p id="footer-text">Plan Perfecto &copy; 2024 - Hecho con amor y flores</p>
+        <p id="footer-text">Pla Perfecte &copy; 2024 - Fet amb amor i flors</p>
     </footer>
 
     <div id="historyModal">
         <div class="bg-white rounded-2xl w-full max-w-2xl max-h-[85vh] overflow-hidden flex flex-col m-3 md:m-4 shadow-2xl">
             <div class="p-4 md:p-6 header-gradient text-white flex justify-between items-center">
                 <h2 class="text-xl md:text-2xl font-bold flex items-center">
-                    <i class="fas fa-history mr-3"></i> <span id="lbl-history-title">Mis Planes Guardados</span>
+                    <i class="fas fa-history mr-3"></i> <span id="lbl-history-title">Els Meus Plans Guardats</span>
                 </h2>
                 <button onclick="toggleHistory()" class="text-3xl">&times;</button>
             </div>
@@ -257,10 +257,10 @@
 
             <div class="p-4 bg-gray-50 border-t flex flex-col sm:flex-row gap-3 justify-between">
                 <button onclick="clearHistory()" class="text-red-600 hover:text-red-800 font-bold text-xs md:text-sm uppercase py-2">
-                    <i class="fas fa-trash-alt mr-1"></i> <span id="btn-clear-all">Borrar Historial</span>
+                    <i class="fas fa-trash-alt mr-1"></i> <span id="btn-clear-all">Esborrar Historial</span>
                 </button>
                 <button onclick="toggleHistory()" class="btn-primary px-6 py-2.5 rounded font-bold text-xs md:text-sm uppercase">
-                    <span id="btn-close">Cerrar</span>
+                    <span id="btn-close">Tancar</span>
                 </button>
             </div>
         </div>
@@ -271,26 +271,6 @@
         let history = JSON.parse(localStorage.getItem('planHistory')) || [];
 
         const translations = {
-            es: {
-                title: "Plan Perfecto",
-                motto: '"Cada día es una nueva oportunidad para crear recuerdos inolvidables"',
-                footer: "Plan Perfecto © 2024 - Hecho con amor y flores",
-                historyBtn: "Historial",
-                date: "Fecha",
-                temp: "Temperatura (°C)",
-                with: "¿Con quién vas?",
-                generate: "Encontrar Plan",
-                suggested: "Tu plan ideal es...",
-                doIt: "¡Lo hago!",
-                other: "Otro plan",
-                historyTitle: "Mis Planes Guardados",
-                clearAll: "Borrar Historial",
-                close: "Cerrar",
-                noPlans: "Aún no has guardado ningún plan.",
-                optionsWith: ["Pareja", "Amigos", "Solo", "Familia"],
-                inspire: "Inspírate",
-                plans: ["Ir a tomar un helado artesano", "Paseo por la montaña", "Tarde de cine y palomitas", "Visitar un museo local", "Cena romántica", "Ver el atardecer en la playa", "Picnic en el parque", "Sesión de juegos de mesa", "Leer un libro en una cafetería", "Ruta en bicicleta", "Ir a patinar", "Cocinar algo nuevo"]
-            },
             ca: {
                 title: "Pla Perfecte",
                 motto: '"Cada dia és una nova oportunitat per crear records inoblidables"',
@@ -310,6 +290,26 @@
                 optionsWith: ["Parella", "Amics", "Sol", "Família"],
                 inspire: "Inspira't",
                 plans: ["Prendre un gelat artesà", "Passejada per la muntanya", "Tarda de cinema i crispetes", "Visitar un museu local", "Sopar romàntic", "Veure la posta de sol a la platja", "Pícnic al parc", "Sessió de jocs de taula", "Llegir un llibre en una cafeteria", "Ruta en bicicleta", "Anar a patinar", "Cuinar una cosa nova"]
+            },
+            es: {
+                title: "Plan Perfecto",
+                motto: '"Cada día es una nueva oportunidad para crear recuerdos inolvidables"',
+                footer: "Plan Perfecto © 2024 - Hecho con amor y flores",
+                historyBtn: "Historial",
+                date: "Fecha",
+                temp: "Temperatura (°C)",
+                with: "¿Con quién vas?",
+                generate: "Encontrar Plan",
+                suggested: "Tu plan ideal es...",
+                doIt: "¡Lo hago!",
+                other: "Otro plan",
+                historyTitle: "Mis Planes Guardados",
+                clearAll: "Borrar Historial",
+                close: "Cerrar",
+                noPlans: "Aún no has guardado ningún plan.",
+                optionsWith: ["Pareja", "Amigos", "Solo", "Familia"],
+                inspire: "Inspírate",
+                plans: ["Ir a tomar un helado artesano", "Paseo por la montaña", "Tarde de cine y palomitas", "Visitar un museo local", "Cena romántica", "Ver el atardecer en la playa", "Picnic en el parque", "Sesión de juegos de mesa", "Leer un libro en una cafetería", "Ruta en bicicleta", "Ir a patinar", "Cocinar algo nuevo"]
             },
             en: {
                 title: "Perfect Plan",
@@ -337,13 +337,12 @@
             const lang = document.getElementById('lang-selector').value;
             const t = translations[lang];
 
-            // Título y Motto
+            // Título Principal
             document.getElementById('app-title').innerText = t.title;
-            document.title = t.title; // También cambia el título de la pestaña del navegador
-            document.getElementById('txt-motto').innerText = t.motto;
-            document.getElementById('footer-text').innerText = t.footer;
+            document.title = t.title;
+            document.getElementById('footer-text').innerHTML = `${t.title} &copy; 2024 - ${t.footer.split(' - ')[1]}`;
 
-            // Elementos interfaz
+            document.getElementById('txt-motto').innerText = t.motto;
             document.getElementById('txt-history-btn').innerText = t.historyBtn;
             document.getElementById('lbl-date').innerText = t.date;
             document.getElementById('lbl-temp').innerText = t.temp;
@@ -398,7 +397,7 @@
             
             const btn = document.getElementById('btn-do-it');
             const lang = document.getElementById('lang-selector').value;
-            btn.innerText = lang === 'en' ? "Saved!" : "¡Guardado!";
+            btn.innerText = lang === 'en' ? "Saved!" : (lang === 'ca' ? "Guardat!" : "¡Guardado!");
             setTimeout(() => {
                 btn.innerText = translations[lang].doIt;
                 document.getElementById('plan-result').classList.add('hidden');
@@ -428,4 +427,4 @@
                 return;
             }
 
-           
+            history.forEach(item => {
